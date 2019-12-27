@@ -8,7 +8,7 @@
       code.
     </p>
     <code-terminal class="spacing" />
-    <h2 id="projects-title" class="section-titles">> </h2>
+    <h2 id="projects-title" class="section-titles">></h2>
     <project-card
       v-for="project in $page.projects.edges"
       :key="project.node.title"
@@ -19,7 +19,7 @@
       :frontImg="project.node.frontImg"
     />
     <div class="spacing">
-      <h2 id="contact-title" class="section-titles">> </h2>
+      <h2 id="contact-title" class="section-titles">></h2>
       <contact-form />
     </div>
   </Layout>
@@ -59,12 +59,18 @@ export default {
   },
 
   created: function() {
+    if (typeof window === "undefined") {
+      return;
+    }
     window.addEventListener("scroll", this.handleScroll);
   },
   mounted() {
     this.initWriting();
   },
   destroyed: function() {
+    if (typeof window === "undefined") {
+      return;
+    }
     window.removeEventListener("scroll", this.handleScroll);
   },
   data() {

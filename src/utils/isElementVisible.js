@@ -1,14 +1,14 @@
 function isElementVisible(selector) {
   const el = document.querySelector(selector);
 
- if(!el) {
-     return false;
- }
+  if (!el || typeof window === "undefined") {
+    return false;
+  }
 
   const rect = el.getBoundingClientRect();
   const vWidth = window.innerWidth || doc.documentElement.clientWidth;
   const vHeight = window.innerHeight || doc.documentElement.clientHeight;
-  
+
   const efp = function(x, y) {
     return document.elementFromPoint(x, y);
   };
