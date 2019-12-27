@@ -1,33 +1,67 @@
 <template>
   <Layout>
-
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-
-    <h1>Hello, world!</h1>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <p class="home-links">
-      <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
-      <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-    </p>
-
+    <h1 class="title-header"> 
+      > Patrik Nilsson
+    </h1>
+    <code-terminal class="spacing" />
+    <project-card
+      v-for="project in $page.projects.edges"
+      :key="project.node.title"
+      :title="project.node.title"
+      :description="project.node.description"
+      :features="project.node.features"
+      :tags="project.node.tags"
+      :frontImg="project.node.frontImg"
+    />
+    <contact-form class="spacing" />
   </Layout>
 </template>
 
 <script>
+import CodeTerminal from "~/components/CodeTerminal.vue";
+import ContactForm from "~/components/ContactForm.vue";
+import ProjectCard from "~/components/ProjectCard.vue";
 export default {
+  components: {
+    CodeTerminal,
+    ContactForm,
+    ProjectCard
+  },
   metaInfo: {
-    title: 'Hello, world!'
+    title: "Hello, world!"
+  },
+  mounted() {
+    console.log(this.$page);
+  },
+  data() {
+    return {
+      isActive: true
+    };
   }
-}
+};
 </script>
 
-<style>
-.home-links a {
-  margin-right: 1rem;
+<page-query>
+{
+  projects: allPost(filter:{fileInfo: {directory: {regex: "content/projects"}} }) {
+    edges {
+      node {
+       title
+       description
+       features
+       tags
+       frontImg (quality: 100)
+      }
+    }
+  }
+}
+</page-query>
+
+<style lang="scss" scoped>
+.spacing {
+  margin: 5rem 0;
+}
+.title-header {
+  font-size: 5rem;
 }
 </style>
