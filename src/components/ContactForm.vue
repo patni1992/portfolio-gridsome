@@ -1,38 +1,72 @@
 <template>
- <section>
-     <div class="columns">
-                    <div class="column is-6">
-     <b-field label="Subject">
-             <b-input ></b-input>
-        </b-field>
-        <b-field label="Name">
-            <b-input ></b-input>
-        </b-field>
-
-        <b-field label="Email"
-           >
-            <b-input type="email"
-                maxlength="30">
-            </b-input>
-        </b-field>
-         <b-field>
-            <b-button type="is-success">Success</b-button>
-        </b-field>
+  <section>
+    <form
+      name="contact"
+      @submit.prevent="submitForm"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
+      <div class="columns">
+        <div class="column is-6">
+          <b-field label="Subject">
+            <b-input name="subject" v-model="form.subject" required />
+          </b-field>
+          <b-field label="Name">
+            <b-input name="name" v-model="form.name" required />
+          </b-field>
+          <b-field label="Email">
+            <b-input name="email" v-model="form.email" type="email" required />
+          </b-field>
+          <b-field>
+            <b-button native-type="submit" type="is-success"
+              >Send email</b-button
+            >
+          </b-field>
         </div>
-         <div class="column is-6">
-        <b-field label="Message">
-            <b-input rows="7" maxlength="200" type="textarea"></b-input>
-        </b-field>
-        
+        <div class="column is-6">
+          <b-field label="Message">
+            <b-input
+              name="message"
+              rows="7"
+              v-model="form.message"
+              type="textarea"
+              required
+            />
+          </b-field>
         </div>
-     </div>
-    </section>
+      </div>
+    </form>
+  </section>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      form: {
+        message: "",
+        name: "",
+        email: "",
+        message: ""
+      }
+    };
+  },
+  methods: {
+    async submitForm() {
+      try {
+        const response = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encodeForm({ "form-name": "contact", ...this.form })
+        });
+        console.log(response)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+  }
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
