@@ -1,25 +1,29 @@
 <template>
   <Layout v-on:scroll.native="handleScroll">
-    <h1 class="title-header" id="title">
-      >
-    </h1>
-    <p class="me-description">
-      I am a fullstack developer. My passion is writing simple and beatiful
-      code.
-    </p>
-    <code-terminal class="spacing" />
-    <h2 id="projects-title" class="section-titles">></h2>
-    <project-card
-      v-for="project in $page.projects.edges"
-      :key="project.node.title"
-      :title="project.node.title"
-      :description="project.node.description"
-      :features="project.node.features"
-      :tags="project.node.tags"
-      :frontImg="project.node.frontImg"
-    />
-    <div class="spacing">
-      <h2 id="contact-title" class="section-titles">></h2>
+    <div class="section">
+      <h1 class="title-header" id="title">
+        >
+      </h1>
+      <p class="me-description">
+        I am a fullstack developer. My passion is writing simple and beatiful
+        code.
+      </p>
+    </div>
+    <code-terminal class="section" />
+    <div class="section">
+      <h2 id="projects-title" class="section-titles">> </h2>
+      <project-card
+        v-for="project in $page.projects.edges"
+        :key="project.node.title"
+        :title="project.node.title"
+        :description="project.node.description"
+        :features="project.node.features"
+        :tags="project.node.tags"
+        :frontImg="project.node.frontImg"
+      />
+    </div>
+    <div class="section">
+      <h2 id="contact-title" class="section-titles">> </h2>
       <contact-form />
     </div>
   </Layout>
@@ -101,11 +105,8 @@ export default {
 </page-query>
 
 <style lang="scss">
-.spacing {
-  margin: 5rem 0;
-}
 .title-header {
-  font-size: 4.5rem;
+  font-size: 4.2rem;
 }
 .section-titles {
   font-size: 2.8rem;

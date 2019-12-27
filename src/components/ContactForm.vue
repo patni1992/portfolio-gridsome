@@ -18,11 +18,6 @@
           <b-field label="Email">
             <b-input name="email" v-model="form.email" type="email" required />
           </b-field>
-          <b-field>
-            <b-button native-type="submit" type="is-success"
-              >Send email</b-button
-            >
-          </b-field>
         </div>
         <div class="column is-6">
           <b-field label="Message">
@@ -36,6 +31,11 @@
           </b-field>
         </div>
       </div>
+      <b-field>
+            <b-button  native-type="submit" type="is-success"
+              >Send email</b-button
+            >
+          </b-field>
     </form>
   </section>
 </template>
