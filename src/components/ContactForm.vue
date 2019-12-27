@@ -32,10 +32,10 @@
         </div>
       </div>
       <b-field>
-            <b-button  native-type="submit" type="is-success"
-              >Send email</b-button
-            >
-          </b-field>
+        <b-button native-type="submit" type="is-success">
+          Send email
+        </b-button>
+      </b-field>
     </form>
   </section>
 </template>
@@ -62,9 +62,9 @@ export default {
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: encodeForm({ "form-name": "contact", ...this.form })
         });
-        console.log(response)
+        console.log(response);
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     }
   }
