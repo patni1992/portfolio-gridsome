@@ -8,6 +8,7 @@
       netlify-honeypot="bot-field"
     >
       <div class="columns">
+        <input type="hidden" name="form-name" value="contact" />
         <div class="column is-6">
           <b-field label="Subject">
             <b-input name="subject" v-model="form.subject" required />
