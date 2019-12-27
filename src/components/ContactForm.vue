@@ -31,7 +31,7 @@
           </b-field>
         </div>
       </div>
-      <b-field>
+      <b-field grouped>
         <b-button native-type="submit" type="is-success">
           Send email
         </b-button>
