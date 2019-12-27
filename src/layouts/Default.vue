@@ -1,7 +1,8 @@
 <template>
   <div class="container">
-    <app-header /> 
-    <slot/>
+    <app-header />
+    <slot />
+    <app-footer />
   </div>
 </template>
 
@@ -14,10 +15,12 @@ query {
 </static-query>
 
 <script>
-import AppHeader from "~/components/AppHeader.vue"
+import AppHeader from "~/components/AppHeader.vue";
+import AppFooter from "~/components/AppFooter.vue";
 export default {
   components: {
-    AppHeader
+    AppHeader,
+    AppFooter
   },
   metaInfo: {
     title: "Hello, world!"
@@ -29,6 +32,4 @@ export default {
   }
 };
 </script>
-<style>
-
-</style>
+<style></style>
