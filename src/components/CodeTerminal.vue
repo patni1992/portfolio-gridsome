@@ -67,6 +67,7 @@ $red-color: #f65549;
 }
 
 .terminal {
+    
   &__blinking-cursor {
     animation: 1s blink step-end infinite;
     padding: 0 0.3rem 0 0.3rem;
@@ -76,7 +77,7 @@ $red-color: #f65549;
   &__input-text {
     color: $green-color;
     font-size: 1.6rem;
-    padding-top: 3rem;
+    padding-top: 2.2rem;
     margin-left: $margin-left;
     &:last-child {
       padding-bottom: 3rem;
@@ -103,11 +104,11 @@ $red-color: #f65549;
 
   &__header {
     background-color: #e2e1e3;
-    height: 2.8rem;
+    height: 2rem;
     display: flex;
     align-items: center;
     vertical-align: middle;
-    border-radius: 1rem 1rem 0 0;
+    border-radius: 0.6rem 0.6rem 0 0;
 
     &__center {
       font-size: 1.2rem;
