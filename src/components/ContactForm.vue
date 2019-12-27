@@ -41,6 +41,8 @@
 </template>
 
 <script>
+import encodeForm from "~/utils/encodeForm";
+
 export default {
   data() {
     return {
