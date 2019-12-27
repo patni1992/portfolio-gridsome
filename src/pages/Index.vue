@@ -1,6 +1,6 @@
 <template>
   <Layout v-on:scroll.native="handleScroll">
-    <div class="section">
+    <div class="spacing">
       <h1 class="title-header" id="title">
         >
       </h1>
@@ -9,8 +9,8 @@
         code.
       </p>
     </div>
-    <code-terminal class="section" />
-    <div class="section">
+    <code-terminal class="spacing" />
+    <div class="spacing">
       <h2 id="projects-title" class="section-titles">> </h2>
       <project-card
         v-for="project in $page.projects.edges"
@@ -22,7 +22,7 @@
         :frontImg="project.node.frontImg"
       />
     </div>
-    <div class="section">
+    <div class="spacing">
       <h2 id="contact-title" class="section-titles">> </h2>
       <contact-form />
     </div>
@@ -104,7 +104,11 @@ export default {
 }
 </page-query>
 
+
 <style lang="scss">
+.spacing {
+  padding: 2rem 1rem
+}
 .title-header {
   font-size: 4.2rem;
 }
