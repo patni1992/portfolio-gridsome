@@ -11,7 +11,7 @@
     </div>
     <code-terminal class="spacing" />
     <div class="spacing">
-      <h2 id="projects-title" class="section-titles">> </h2>
+      <h2 id="projects-title" class="section-titles">></h2>
       <project-card
         v-for="project in $page.projects.edges"
         :key="project.node.title"
@@ -20,10 +20,11 @@
         :features="project.node.features"
         :tags="project.node.tags"
         :frontImg="project.node.frontImg"
+        :github="project.node.github"
       />
     </div>
     <div class="spacing">
-      <h2 id="contact-title" class="section-titles">> </h2>
+      <h2 id="contact-title" class="section-titles">></h2>
       <contact-form />
     </div>
   </Layout>
@@ -41,9 +42,6 @@ export default {
     CodeTerminal,
     ContactForm,
     ProjectCard
-  },
-  metaInfo: {
-    title: "Hello, world!"
   },
   methods: {
     handleScroll(event) {
@@ -97,6 +95,7 @@ export default {
        description
        features
        tags
+       github
        frontImg (quality: 100)
       }
     }
@@ -104,18 +103,26 @@ export default {
 }
 </page-query>
 
-
 <style lang="scss">
 .spacing {
-  padding: 2rem 1rem
+  padding: 2rem 1rem;
 }
 .title-header {
-  font-size: 4.2rem;
+  font-size: 3.1rem;
+ 
+ @media only screen and (min-width: 768px) {
+    font-size: 4.2rem;
+  }
 }
 .section-titles {
   font-size: 2.8rem;
 }
 .me-description {
-  font-size: 2rem;
+   font-size: 1.6rem;
+
+
+   @media only screen and (min-width: 768px) {
+     font-size: 2rem;
+  }
 }
 </style>

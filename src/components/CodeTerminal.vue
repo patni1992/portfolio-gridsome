@@ -21,7 +21,10 @@
       </p>
       <p class="terminal__input-text">> resume</p>
       <p>
-        <a class="terminal__output-text terminal__output-text--link" download href="/patrik-nilsson-cv.pdf"
+        <a
+          class="terminal__output-text terminal__output-text--link"
+          download
+          href="/patrik-nilsson-cv.pdf"
           >patriknilsson.pdf
         </a>
       </p>
@@ -31,7 +34,7 @@
       </p>
       <p class="terminal__input-text">> backendSkills</p>
       <p class="terminal__output-text">
-        ["Node", "MySQL", "MongoDB", "Php", "Laravel"]
+        ["Node", "MySQL", "MongoDB", "Php", "Laravel", "Docker"]
       </p>
       <p class="terminal__input-text">> hoursOfCoding</p>
       <p class="terminal__output-text terminal__output-text--error">
@@ -67,7 +70,6 @@ $red-color: #f65549;
 }
 
 .terminal {
-    
   &__blinking-cursor {
     animation: 1s blink step-end infinite;
     padding: 0 0.3rem 0 0.3rem;
@@ -78,7 +80,10 @@ $red-color: #f65549;
     color: $green-color;
     font-size: 1.6rem;
     padding-top: 2.2rem;
-    margin-left: $margin-left;
+    margin-left: 0.8rem;
+    @media only screen and (min-width: 768px) {
+      margin-left: $margin-left;
+    }
     &:last-child {
       padding-bottom: 3rem;
     }
@@ -87,7 +92,10 @@ $red-color: #f65549;
   &__output-text {
     color: #6699ff;
     font-size: 1.6rem;
-    margin-left: $margin-left;
+    margin-left: 0.8rem;
+    @media only screen and (min-width: 768px) {
+      margin-left: $margin-left;
+    }
 
     &--link {
       color: #57c1a8;

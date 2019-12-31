@@ -6,6 +6,12 @@
 
 module.exports = {
   siteName: 'Gridsome',
+  chainWebpack: config => {
+		config.module
+			.rule("vue")
+			.use("vue-svg-inline-loader")
+				.loader("vue-svg-inline-loader")
+	},
   plugins: [
     {
       use: '@gridsome/source-filesystem',

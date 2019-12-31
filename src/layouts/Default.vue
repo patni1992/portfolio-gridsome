@@ -23,7 +23,7 @@ export default {
     AppFooter
   },
   metaInfo: {
-    title: "Hello, world!"
+    title: "Patrik Nilsson Portfolio"
   },
   data() {
     return {

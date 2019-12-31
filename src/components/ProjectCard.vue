@@ -2,8 +2,8 @@
   <div>
     <div class="card columns">
       <div class="card-image column is-8">
-        <figure class="image is-4by3">
-          <g-image :src="frontImg" />
+        <figure  style="height: 100%;">
+          <g-image   fit="cover" :src="frontImg" />
         </figure>
       </div>
       <div class="card-content column is-4">
@@ -14,7 +14,7 @@
         </div>
 
         <div class="content">
-          <p>
+          <p style="margin-bottom: 0;" class="description"> 
             {{ description }}
           </p>
           <div class="field is-grouped is-grouped-multiline">
@@ -24,6 +24,16 @@
                   {{ feature }}
                 </li>
               </ul>
+            </div>
+            
+         
+            <div class="portfolio-links">
+              <a target="_blank" class="github-link" :href="github">
+               
+                  <img  svg-inline class="svg-icon" src="../assets/svgs/Github.svg" alt="github-icon" />
+                Repo
+              </a>
+             
             </div>
             <div class="tags">
               <span class="tag is-medium" v-for="tag in tags" :key="tag">{{
@@ -39,9 +49,6 @@
 
 <script>
 export default {
-  mounted() {
-    console.log(this.features);
-  },
   props: {
     title: {
       requtype: String,
@@ -52,13 +59,14 @@ export default {
       required: true
     },
     features: {
-      requtype: Array,
+      type: Array
     },
     tags: {
-      requtype: Array,
+      type: Array
     },
+    github: {type: String},
     frontImg: {
-        requtype: String,
+      requtype: String,
       required: true
     }
   }
@@ -66,6 +74,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.svg-icon {
+    height: 1.2rem;
+    width: 1.2rem;
+}
 .card {
   margin: 2rem 0;
   box-shadow: 0 50px 100px rgba(50, 50, 93, 0.05),
@@ -78,6 +90,10 @@ export default {
   flex-direction: row-reverse;
 }
 
+.card-content {
+  padding:  0.8rem;
+}
+
 .card-image {
   padding: 0;
 }
@@ -88,7 +104,33 @@ export default {
   height: 100%;
   width: 100%;
 }
-.tags {
-    margin: 1rem 0;
+.control {
+  li {
+    margin-left: -1rem;
+  }
 }
+.tags {
+  margin: 0.5rem 0;
+}
+
+.portfolio-links {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+
+  .svg-icon {
+    margin-right: 0.2rem;
+  }
+
+.github-link {
+  display: inline-flex;
+  align-self: center;
+}
+ 
+
+  a {
+    color: #4a4a4a;
+  }
+}
+
 </style>
