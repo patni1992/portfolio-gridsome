@@ -3,7 +3,7 @@
     <div class="card columns">
       <div class="card-image column is-8">
         <figure  style="height: 100%;">
-          <g-image   fit="cover" :src="frontImg" />
+          <g-image  v-if="frontImg" fit="cover" :src="frontImg" />
         </figure>
       </div>
       <div class="card-content column is-4">
