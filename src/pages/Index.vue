@@ -11,7 +11,7 @@
     </div>
     <code-terminal class="spacing" />
     <div class="spacing">
-      <h2 id="projects-title" class="section-titles">></h2>
+      <h2 id="projects" class="section-titles">></h2>
       <project-card
         v-for="project in $page.projects.edges"
         :key="project.node.title"
@@ -21,11 +21,12 @@
         :tags="project.node.tags"
         :frontImg="project.node.frontImg"
         :github="project.node.github"
+        :site="project.node.site"
       />
     </div>
     <div class="spacing">
       <h2 id="contact-title" class="section-titles">></h2>
-      <contact-form />
+      <contact-form  id="contact"/>
     </div>
   </Layout>
 </template>
@@ -55,7 +56,7 @@ export default {
     },
     initWriting() {
       this.writeText("Patrik Nilsson", "#title", "typeTitle");
-      this.writeText("My Projects", "#projects-title", "typeProjects");
+      this.writeText("My Projects", "#projects", "typeProjects");
       this.writeText("Get in touch", "#contact-title", "typeContact");
     }
   },
@@ -96,6 +97,7 @@ export default {
        features
        tags
        github
+       site
        frontImg (quality: 100)
       }
     }
@@ -105,7 +107,7 @@ export default {
 
 <style lang="scss">
 .spacing {
-  padding: 2rem 1rem;
+  padding: 1.6rem 1rem;
 }
 .title-header {
   font-size: 3.1rem;

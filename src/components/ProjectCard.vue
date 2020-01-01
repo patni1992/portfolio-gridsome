@@ -27,13 +27,15 @@
             </div>
             
          
-            <div class="portfolio-links">
-              <a target="_blank" class="github-link" :href="github">
-               
+            <div  class="portfolio-links">
+              <a v-if="github" target="_blank" :href="github">
                   <img  svg-inline class="svg-icon" src="../assets/svgs/Github.svg" alt="github-icon" />
                 Repo
               </a>
-             
+             <a v-if="site" target="_blank" :href="site">
+                  <img  svg-inline class="svg-icon" src="../assets/svgs/Globe.svg" alt="page-icon" />
+                Site
+              </a>
             </div>
             <div class="tags">
               <span class="tag is-medium" v-for="tag in tags" :key="tag">{{
@@ -65,6 +67,7 @@ export default {
       type: Array
     },
     github: {type: String},
+    site: {type: String},
     frontImg: {
       requtype: String,
       required: true
@@ -118,15 +121,17 @@ export default {
   width: 100%;
   margin: 0.5rem 0;
 
-  .svg-icon {
-    margin-right: 0.2rem;
+  
+
+  a {
+      display: inline-flex;
+  align-self: center;
+  margin-right: 2rem;
   }
 
-.github-link {
-  display: inline-flex;
-  align-self: center;
-}
- 
+  .svg-icon {
+    margin-right: 0.4rem;
+  }
 
   a {
     color: #4a4a4a;
