@@ -5,8 +5,7 @@
         >
       </h1>
       <p class="me-description">
-        I am a fullstack developer. My passion is writing simple and beatiful
-        code.
+        I am a full stack developer. My passion is writing simple and beautiful code.
       </p>
     </div>
     <code-terminal class="spacing" />

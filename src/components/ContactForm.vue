@@ -33,7 +33,12 @@
         </div>
       </div>
       <b-field grouped>
-        <b-button native-type="submit" type="is-success">
+        <b-button
+          :disabled="loading"
+          :loading="loading"
+          native-type="submit"
+          type="is-success"
+        >
           Send email
         </b-button>
       </b-field>
@@ -47,6 +52,7 @@ import encodeForm from "~/utils/encodeForm";
 export default {
   data() {
     return {
+      loading: false,
       form: {
         message: "",
         name: "",
@@ -56,17 +62,37 @@ export default {
     };
   },
   methods: {
+    success() {
+      this.$buefy.toast.open({
+        message: "Your email was sent, thank you!",
+        type: "is-success"
+      });
+    },
+    error() {
+      this.$buefy.toast.open({
+        message: `Something went wrong, could not send email`,
+        type: "is-danger"
+      });
+    },
     async submitForm() {
+      this.loading = true;
       try {
         const response = await fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: encodeForm({ "form-name": "contact", ...this.form })
         });
-        console.log(response);
+        this.success();
+        this.form = {
+          message: "",
+          name: "",
+          email: "",
+          message: ""
+        };
       } catch (err) {
-        console.log(err);
+        this.error();
       }
+      this.loading = false;
     }
   }
 };
