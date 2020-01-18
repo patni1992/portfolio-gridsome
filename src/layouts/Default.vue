@@ -22,9 +22,6 @@ export default {
     AppHeader,
     AppFooter
   },
-  metaInfo: {
-    title: "Patrik Nilsson Portfolio"
-  },
   data() {
     return {
       isActive: true
