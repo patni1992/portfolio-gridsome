@@ -1,9 +1,23 @@
 <template>
   <div>
+    <b-modal v-if="gallery.length" :active.sync="isImageModalActive">
+      <b-carousel :arrow="false" :indicator-inside="false">
+        <b-carousel-item v-for="(item, i) in gallery" :key="i">
+          <span class="image">
+            <g-image v-if="frontImg" :src="item" />
+          </span>
+        </b-carousel-item>
+        <template v-if="gallery.length" slot="indicators" slot-scope="props">
+          <span class="al image">
+            <g-image :src="gallery[props.i]" />
+          </span>
+        </template>
+      </b-carousel>
+    </b-modal>
     <div class="card columns">
       <div class="card-image column is-8">
-        <figure  style="height: 100%;">
-          <g-image  v-if="frontImg" fit="cover" :src="frontImg" />
+        <figure style="height: 100%;">
+          <g-image v-if="frontImg" fit="cover" :src="frontImg" />
         </figure>
       </div>
       <div class="card-content column is-4">
@@ -14,7 +28,7 @@
         </div>
 
         <div class="content">
-          <p style="margin-bottom: 0;" class="description"> 
+          <p style="margin-bottom: 0;" class="description">
             {{ description }}
           </p>
           <div class="field is-grouped is-grouped-multiline">
@@ -25,16 +39,34 @@
                 </li>
               </ul>
             </div>
-            
-         
-            <div  class="portfolio-links">
+
+            <div class="portfolio-links">
               <a v-if="github" target="_blank" :href="github">
-                  <img  svg-inline class="svg-icon" src="../assets/svgs/Github.svg" alt="github-icon" />
+                <img
+                  svg-inline
+                  class="svg-icon"
+                  src="../assets/svgs/Github.svg"
+                  alt="github-icon"
+                />
                 Repo
               </a>
-             <a v-if="site" target="_blank" :href="site">
-                  <img  svg-inline class="svg-icon" src="../assets/svgs/Globe.svg" alt="page-icon" />
+              <a v-if="site" target="_blank" :href="site">
+                <img
+                  svg-inline
+                  class="svg-icon"
+                  src="../assets/svgs/Globe.svg"
+                  alt="page-icon"
+                />
                 Site
+              </a>
+              <a @click="isImageModalActive = true" v-if="gallery.length">
+                <img
+                  svg-inline
+                  class="svg-icon"
+                  src="../assets/svgs/Image.svg"
+                  alt="page-icon"
+                />
+                Gallery
               </a>
             </div>
             <div class="tags">
@@ -51,6 +83,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+       isImageModalActive: false
+    }
+  },
   props: {
     title: {
       requtype: String,
@@ -66,8 +103,9 @@ export default {
     tags: {
       type: Array
     },
-    github: {type: String},
-    site: {type: String},
+    github: { type: String },
+    site: { type: String },
+    gallery: {type: Array},
     frontImg: {
       requtype: String,
       required: true
@@ -78,8 +116,8 @@ export default {
 
 <style lang="scss" scoped>
 .svg-icon {
-    height: 1.2rem;
-    width: 1.2rem;
+  height: 1.2rem;
+  width: 1.2rem;
 }
 .card {
   margin: 2rem 0;
@@ -94,7 +132,7 @@ export default {
 }
 
 .card-content {
-  padding:  0.8rem;
+  padding: 0.8rem;
 }
 
 .card-image {
@@ -121,12 +159,10 @@ export default {
   width: 100%;
   margin: 0.5rem 0;
 
-  
-
   a {
-      display: inline-flex;
-  align-self: center;
-  margin-right: 2rem;
+    display: inline-flex;
+    align-self: center;
+    margin-right: 2rem;
   }
 
   .svg-icon {
@@ -137,5 +173,4 @@ export default {
     color: #4a4a4a;
   }
 }
-
 </style>

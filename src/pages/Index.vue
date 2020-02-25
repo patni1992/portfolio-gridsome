@@ -21,6 +21,7 @@
         :frontImg="project.node.frontImg"
         :github="project.node.github"
         :site="project.node.site"
+        :gallery="project.node.gallery"
       />
     </div>
     <div class="spacing">
@@ -97,6 +98,7 @@ export default {
        tags
        github
        site
+       gallery
        frontImg (quality: 100)
       }
     }
