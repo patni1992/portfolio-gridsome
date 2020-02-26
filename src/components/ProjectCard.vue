@@ -64,7 +64,7 @@
                   svg-inline
                   class="svg-icon"
                   src="../assets/svgs/Image.svg"
-                  alt="page-icon"
+                  alt="gallery-icon"
                 />
                 Gallery
               </a>
@@ -155,14 +155,15 @@ export default {
 }
 
 .portfolio-links {
-  display: block;
-  width: 100%;
-  margin: 0.5rem 0;
+   width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
 
   a {
     display: inline-flex;
     align-self: center;
-    margin-right: 2rem;
+    margin-right: 1rem;
   }
 
   .svg-icon {

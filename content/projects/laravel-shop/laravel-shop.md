@@ -9,6 +9,13 @@ features:
   ]
 tags: ["Laravel", "Php", "Bootstrap", "MySQL"]
 github: "https://github.com/patni1992/laravel-shop"
-frontImg: "./laravel-shop.png"
+frontImg: "./laravel-shop.jpg"
+gallery:  
+  [
+    "./laravel-shop.jpg",
+    "./product-detail.jpg",
+     "./project-features.jpg",
+    "./cart.jpg"
+  ]
 
 ---
