@@ -9,5 +9,11 @@ features: [
   ]
 tags: ["Vue", "Vuex", "Typescript", "Node"]
 github: "https://github.com/patni1992/typescript-vue-trello"
-frontImg: "./kanban-app.png"  
+frontImg: "./kanban-app.jpg"
+gallery:  
+  [
+    "./kanban-app.jpg",
+    "./login.jpg",
+     "./create-board.jpg"
+  ]  
 ---
